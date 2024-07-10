@@ -1,49 +1,81 @@
-### Transaction Prediction and Cost Reduction Model
+# Vorhersagemodell zur Transaktionsvorhersage und Kostenreduktion
 
-This repository contains a comprehensive project for building and optimizing a machine learning model aimed at predicting transaction outcomes to minimize transaction costs. The primary goal is to create a predictive model that can accurately forecast successful transactions and reduce associated fees based on predefined fee structures.
+Dieses Repository enthält ein umfassendes Projekt zur Erstellung und Optimierung eines maschinellen Lernmodells zur Vorhersage von Transaktionsergebnissen und zur Minimierung von Transaktionskosten. Das Hauptziel ist es, ein Vorhersagemodell zu entwickeln, das erfolgreich Transaktionen prognostizieren und die damit verbundenen Gebühren basierend auf vordefinierten Gebührenstrukturen reduzieren kann.
 
-#### Project Overview
+## Projektübersicht
 
-- **Data Preparation**: Loading, cleaning, and preprocessing transaction data.
-- **Exploratory Data Analysis (EDA)**: Visualizing distributions of transaction amounts, success status, 3D secured status, country, payment service providers (PSP), and card providers.
-- **Feature Engineering**: Creating new features from timestamps and other relevant data.
-- **Modeling**:
-  - Baseline Model: Logistic Regression
-  - Advanced Models: Support Vector Machine (SVM), Random Forest, Gradient Boosting, XGBoost, LightGBM
-- **Hyperparameter Tuning**: Using GridSearchCV to optimize model parameters for Random Forest and LightGBM.
-- **Cost Calculation**: Calculating actual and predicted transaction fees based on model predictions.
-- **Sweet Spot Analysis**: Identifying the optimal threshold for transaction success prediction to minimize costs.
+1. **Projektorganisation**:
+    - Verwendung der CRISP-DM Methode zur strukturierten und systematischen Herangehensweise an die Datenanalyse und Modellentwicklung.
+    - Ziel ist es, die Zuweisung von Kreditkartenzahlungen an die geeigneten Zahlungsdienstleister (PSPs) zu automatisieren, um die Erfolgsrate der Transaktionen zu erhöhen und die Transaktionskosten gering zu halten.
 
-#### Key Metrics
+2. **Datenanalyse**:
+    - Datenbereinigung: Entfernen von Duplikaten, Kodieren kategorialer Variablen und Normalisierung der Daten.
+    - Explorative Datenanalyse (EDA): Untersuchung der Datenstruktur und der Beziehungen zwischen den Variablen.
+    - Korrelationsanalyse: Identifikation der Merkmale, die den Erfolg von Transaktionen beeinflussen.
 
-- **Accuracy**
+3. **Modellierung und Evaluation**:
+    - Erstellung eines Basismodells (RandomForestClassifier) zur Vorhersage des Erfolgs von Transaktionen.
+    - Modellbewertung: Bewertung der Modelle anhand von Metriken wie Genauigkeit, Precision, Recall und F1-Score.
+    - Optimierung durch Hyperparameter-Tuning für verschiedene Modelle: RandomForestClassifier, GradientBoostingClassifier, XGBoostClassifier, LightGBMClassifier, CatBoostClassifier und SVM.
+    - Berechnung der Transaktionsgebühren vor und nach der Anwendung der Vorhersagemodelle.
+
+4. **Integration in die tägliche Arbeit**:
+    - Entwicklung eines Dashboards zur Überwachung der Erfolgsrate von Transaktionen, Analyse der Modellmetriken, Darstellung der Kosteneinsparungen und Prognose zukünftiger Kosten.
+    - Schulung der Mitarbeiter im Fachbereich zur Nutzung des Dashboards und Interpretation der Visualisierungen.
+
+## Wichtige Metriken
+
+- **Genauigkeit**
 - **Precision**
 - **Recall**
 - **F1-Score**
-- **Total Transaction Fees**
+- **Gesamte Transaktionsgebühren**
 
-#### Results
+## Ergebnisse
 
-- LightGBM with tuned hyperparameters showed the best performance in terms of balancing accuracy, precision, recall, and F1-score while aiming to minimize transaction fees.
+- Die optimierten Modelle, insbesondere RandomForestClassifier, GradientBoostingClassifier und LightGBMClassifier, zeigten signifikante Verbesserungen bei der Vorhersage von Transaktionsergebnissen und der Reduzierung von Transaktionsgebühren.
 
-#### Tools and Libraries
+## Tools und Bibliotheken
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- LightGBM
-- Seaborn
-- Matplotlib
-- SMOTE for handling class imbalance
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Scikit-learn**
+- **XGBoost**
+- **LightGBM**
+- **CatBoost**
+- **Seaborn**
+- **Matplotlib**
+- **Joblib**
 
-#### How to Use
+## Nutzung
 
-1. Clone the repository.
-2. Install the required libraries.
-3. Run the Jupyter notebooks or Python scripts to reproduce the analysis and model training.
-4. Evaluate the results and use the optimized model for predicting transaction outcomes to minimize fees.
+1. **Repository klonen**:
+    ```bash
+    git clone <repository_url>
+    cd <repository_directory>
+    ```
 
----
+2. **Erforderliche Bibliotheken installieren**:
+    ```bash
+    pip install pandas numpy scikit-learn xgboost lightgbm catboost joblib matplotlib seaborn
+    ```
 
-Feel free to customize this description further based on your specific needs and any additional details you'd like to include.
+3. **Jupyter-Notebooks oder Python-Skripte ausführen**, um die Analyse und das Modelltraining zu reproduzieren:
+    - `daten_analyse.ipynb`: Durchführung der explorativen Datenanalyse.
+    - `basismodel.ipynb`: Training des Basismodells.
+    - `advanced_models_hyperparameter_and_CV.ipynb`: Training mehrerer Modelle, deren Hyperparameteroptimierung und Kreuzvalidierung. In diesem Notebook werden folgende Schritte durchgeführt:
+        - Laden und Vorverarbeiten der Daten
+        - Umwandeln von kategorischen Merkmalen in numerische Werte
+        - Aufteilen der Daten in Trainings- und Testsets
+        - Definieren und Trainieren mehrerer Modelle (RandomForest, GradientBoosting, XGBoost, CatBoost und SVM)
+        - Hyperparameter-Tuning mit RandomizedSearchCV
+        - Speichern und Laden der trainierten Modelle
+        - Berechnung der Transaktionsgebühren vor und nach der Prognose
+        - Durchführung einer Sweet Spot Analyse zur Bewertung der Modelle
+
+4. **Ergebnisse evaluieren** und das optimierte Modell zur Vorhersage von Transaktionsergebnissen und zur Minimierung der Gebühren verwenden. Zusätzlich wurde ein Dashboard entwickelt:
+    - Das Dashboard bietet Funktionen zur Überwachung der Erfolgsrate von Transaktionen, zur Analyse der Modellmetriken, zur Darstellung der Kosteneinsparungen und zur Prognose zukünftiger Kosten.
+    - Es ermöglicht eine einfache und intuitive Visualisierung der wichtigsten Kennzahlen, was die Entscheidungsfindung erleichtert.
+
+Viel Erfolg bei der Nutzung des Projekts! Bei Fragen oder Anregungen können Sie gerne ein Issue im Repository erstellen.
