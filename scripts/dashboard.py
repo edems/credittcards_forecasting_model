@@ -7,7 +7,7 @@ import plotly.express as px
 app = dash.Dash(__name__)
 
 # Laden der Excel-Daten
-file_path = '/Users/userlow/Documents/kreditkarte_aufgabe/data/bereinigte_daten.xlsx'
+file_path = '/data/bereinigte_daten.xlsx'
 df = pd.read_excel(file_path)
 
 # Beibehalten der kategorischen Merkmale als Strings
