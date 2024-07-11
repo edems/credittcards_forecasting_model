@@ -5,7 +5,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Laden des Modells
-model = joblib.load('/models/basis_model.joblib')
+model = joblib.load('models/CatBoost_model.joblib')
 
 @app.route('/predict', methods=['POST'])
 def predict():
